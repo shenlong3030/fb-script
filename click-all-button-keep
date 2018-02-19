@@ -1,0 +1,23 @@
+// page Facebook Group reported post,
+// click all button "Giu Lai" ( ajaxify="/groups/reported_story/keep/?group_id=... )
+function doSomething() {
+    var buttons;
+    buttons = document.getElementsByClassName('_42ft');
+    for (var i = 0; i < buttons.length; i++) {
+        if(buttons[i].getAttribute('ajaxify') != null){
+            if(buttons[i].getAttribute('ajaxify').indexOf('keep') != -1){
+                buttons[i].click();
+            }
+        }
+    }
+}
+
+// loop doSomething() after random time (<= 60s)
+(function loop() {
+    var rand = Math.round(Math.random() * (60000 - 500)) + 500;
+    setTimeout(function() {
+            //alert('A');
+            doSomething();
+            loop();  
+    }, rand);
+}());
