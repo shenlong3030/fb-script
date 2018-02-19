@@ -12,12 +12,4 @@ function doSomething() {
     }
 }
 
-// loop doSomething() after random time (<= 60s)
-(function loop() {
-    var rand = Math.round(Math.random() * (60000 - 500)) + 500;
-    setTimeout(function() {
-            //alert('A');
-            doSomething();
-            loop();  
-    }, rand);
-}());
+doSomething();
